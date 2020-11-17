@@ -32,26 +32,26 @@
 
 
 - let定义变量
- - let不能重复定义变量，无法正常编译
-	``` js 
-	let a = 1;
-	let a = 2; //报错
-	```
+	- let不能重复定义变量，无法正常编译
+		``` js 
+		let a = 1;
+		let a = 2; //报错
+		```
 
-- 暂时性死区（TDZ, Temporal Dead Zone）
-``` js
-if (true) {
-  // TDZ开始
-  tmp = 'abc'; // ReferenceError
-  console.log(tmp); // ReferenceError
+	- 暂时性死区（TDZ, Temporal Dead Zone）
+		``` js
+		if (true) {
+		  // TDZ开始
+		  tmp = 'abc'; // ReferenceError
+		  console.log(tmp); // ReferenceError
 
-  let tmp; // TDZ结束
-  console.log(tmp); // undefined
+		  let tmp; // TDZ结束
+		  console.log(tmp); // undefined
 
-  tmp = 123;
-  console.log(tmp); // 123
-}
-```
+		  tmp = 123;
+		  console.log(tmp); // 123
+		}
+		```
 	
 
 ### const
