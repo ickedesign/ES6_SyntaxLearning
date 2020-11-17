@@ -6,9 +6,9 @@
 	``` js
 	function test(){
 	  for(let i = 0;i < 3;i++) {
-	    console.log(i); //0,1,2
+	    console.log(i); // 0,1,2
 	  }
-	  	console.log(i); //"i is not defined"
+	  console.log(i); // Uncaught ReferenceError: i is not defined
 	}
 	```
 
@@ -17,10 +17,18 @@
 	  for(var i = 0;i < 3;i++) {
 	    console.log(i); //0,1,2
 	  }
-	  	console.log(i); //3
+	  console.log(i); //3
 	}
 	```
-
+- let不存在变量提升
+ ``` js
+  // var 的情况
+  console.log(foo); // 输出undefined
+  var foo = 2;
+  // let 的情况
+  console.log(bar); // 报错ReferenceError
+  let bar = 2;
+ ```
 
 
 - let定义变量
@@ -30,6 +38,20 @@
 	let a = 2; //报错
 	```
 
+- 暂时性死区（TDZ, Temporal Dead Zone）
+``` js
+if (true) {
+  // TDZ开始
+  tmp = 'abc'; // ReferenceError
+  console.log(tmp); // ReferenceError
+
+  let tmp; // TDZ结束
+  console.log(tmp); // undefined
+
+  tmp = 123;
+  console.log(tmp); // 123
+}
+```
 	
 
 ### const
